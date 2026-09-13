@@ -3,7 +3,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3000:3001"
     environment:
       DATABASE_URL: postgres://${DB_USER:-apiuser}:${DB_PASSWORD:-apipass}@db:5432/${DB_NAME:-apidb}
       PORT: 3000
