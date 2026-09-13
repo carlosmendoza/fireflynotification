@@ -7,6 +7,10 @@ services:
     environment:
       DATABASE_URL: postgres://${DB_USER:-apiuser}:${DB_PASSWORD:-apipass}@db:5432/${DB_NAME:-apidb}
       PORT: 3000
+      UPLOAD_DIR: /app/uploads
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-100}
+    volumes:
+      - uploads_data:/app/uploads
     depends_on:
       db:
         condition: service_healthy
@@ -28,3 +32,4 @@ services:
 
 volumes:
   db_data:
+  uploads_data:

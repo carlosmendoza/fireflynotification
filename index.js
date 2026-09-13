@@ -1,8 +1,10 @@
 const express = require('express');
 const { pool, init } = require('./db');
+const filesRouter = require('./files');
 
 const app = express();
 app.use(express.json());
+app.use(filesRouter);
 
 function validar(body) {
   const { texto, fecha } = body;
